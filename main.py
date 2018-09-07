@@ -8,8 +8,12 @@ from radix import radixsort
 from shell import shellsort
 # utils
 from populate import populate
-from time import time
-from random import random
+import time
+
+#time functions 
+from time_execute import time_execute_shellsortv100
+from time_execute import time_execute_shellsortv1000
+from time_execute import time_execute_shellsortv10000
 # import the chart lib
 
 
@@ -21,5 +25,3 @@ v100 = populate(v100)
 v1000 = populate(v1000)
 v10000 = populate(v10000)
 
-shellsort(v100)
-print(v100)
