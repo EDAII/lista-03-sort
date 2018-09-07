@@ -3,6 +3,7 @@ from heap import heapsort
 from heap import make_heap
 from merge import mergesort
 from quick import quicksort
+from counting import countingsort
 from radix import radixsort
 
 # utils
