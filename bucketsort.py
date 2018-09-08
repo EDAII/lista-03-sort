@@ -1,6 +1,7 @@
 import math
+from insertion import insertion_sort
 
-DEFAULT_BUCKET_SIZE = 10
+DEFAULT_BUCKET_SIZE = 5
 vector = [22,45,12,8,10,6,72,81,33,18,50,14]
 
 def bucketsort(vector, bucketSize=DEFAULT_BUCKET_SIZE):
@@ -19,15 +20,31 @@ def bucketsort(vector, bucketSize=DEFAULT_BUCKET_SIZE):
 		elif vector[i] > maxValue:
 			maxValue = vector[i]
 
-	# find a divider which will be used to put the elements in the buckets
-	# ceil taken next max integer value
-	divider = math.ceil((maxValue + 1)/bucketSize)
+	bucketCount = math.floor((maxValue - minValue) / bucketSize) + 1
+	# 81 - 6 = 75/5 = 15 + 1 = [16]
 
-	# initialize buckets
+	#initialize buckets
 	buckets = []
+	for i in range(0,bucketCount):
+		buckets.append([])
+
+	#put the values in bucketsort
 
 	for i in range(0,len(vector)):
-		for j in range(0,len(vector)):
-			j = floor(vector[i]/divider)
-			buckets[j] = vector[i]
+		buckets[math.floor((vector[i] - minValue) / bucketSize)].append(vector[i])
+		#append the value 22 on buckets[3]
+		# append the value 45 on bucket[7]
+		#append the value 12 on bucket [1]
 
+	#sorted buckets and place back
+
+	new_vector = []
+	for i in range(0,len(buckets)):
+		insertion_sort(buckets[i])
+		for j in range(0,len(buckets[i])):
+			new_vector.append(buckets[i][j])
+
+	return new_vector
+
+new_vector = bucketsort(vector)
+print(new_vector)
