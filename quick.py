@@ -22,7 +22,6 @@ def quicksort(array):
 
 
 def quicksort_graph(vector, start, end):
-    """In-place quicksort."""
 
     if start >= end:
         return

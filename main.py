@@ -20,15 +20,6 @@ import matplotlib.animation as animation
 
 DEFAULT_BUCKET_SIZE = 5
 
-v100 = list(range(0,100))
-v1000 = list(range(0,1000))
-v10000 = list(range(0,10000))
-
-v100 = populate(v100)
-v1000 = populate(v1000)
-v10000 = populate(v10000)
-
-
 
 if __name__ == "__main__":
 

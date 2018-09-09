@@ -2,6 +2,7 @@
 from heap import heapsort
 from heap import make_heap
 from merge import mergesort
+from merge import mergesort_time
 from quick import quicksort
 from counting import countingsort
 from radix import radixsort
@@ -26,9 +27,9 @@ def time_execute_shellsort_v100():
 	before = time.time()
 	shellsort(v100)
 	after = time.time()
-	total = ((after-before)*100)
+	total = ((after-before)*1000)
 
-	print("time shellsort (100 elements) = %0.2f" % total)
+	print("time shellsort (100 elements) = %0.4f" % total)
 
 
 time_execute_shellsort_v100()
@@ -38,9 +39,9 @@ def time_execute_shellsort_v1000():
 	before = time.time()
 	shellsort(v1000)
 	after = time.time()
-	total = ((after-before)*100)
+	total = ((after-before)*1000)
 
-	print("time shellsort (1000 elements) = %0.2f" % total)
+	print("time shellsort (1000 elements) = %0.4f" % total)
 
 
 time_execute_shellsort_v1000()
@@ -50,44 +51,75 @@ def time_execute_shellsort_v10000():
 	before = time.time()
 	shellsort(v10000)
 	after = time.time()
-	total = ((after-before)*100)
+	total = ((after-before)*1000)
 
-	print("time shellsort = (10000 elements) %0.2f" % total)
+	print("time shellsort = (10000 elements) %0.4f" % total)
 
 
 time_execute_shellsort_v10000()
 
-def time_execute_mergesort_v100():
+def time_execute_quicksort_v100():
 	before = time.time()
-	mergesort(v100,0,v100-1)
+	quicksort(v100)
 	after = time.time()
-	total = ((after-before)*100)
+	total = ((after-before)*1000)
 
-	print("time mergesort = (100 elements) %0.2f" %total)
+	print("time quicksort = (100 elements) %0.4f" %total)
 
-time_execute_mergesort_v100()
+time_execute_quicksort_v100()
 
 
-def time_execute_mergesort_v1000():
+def time_execute_quicksort_v1000():
 	before = time.time()
-	mergesort(v1000,0,v100-1)
+	quicksort(v1000)
 	after = time.time()
-	total = ((after-before)*100)
+	total = ((after-before)*1000)
 
-	print("time mergesort = (1000 elements) %0.2f" %total)
+	print("time quicksort = (1000 elements) %0.4f" %total)
 
-time_execute_mergesort_v1000()
+time_execute_quicksort_v1000()
 
 
-def time_execute_mergesort_v10000():
+def time_execute_quicksort_v10000():
 	before = time.time()
-	mergesort(v10000,0,v100-1)
+	quicksort(v10000)
 	after = time.time()
-	total = ((after-before)*100)
+	total = ((after-before)*1000)
 
-	print("time mergesort = (10000 elements) %0.2f" %total)
+	print("time quicksort = (10000 elements) %0.4f" %total)
 
-time_execute_mergesort_v10000()
+time_execute_quicksort_v10000()
+
+def time_execute_heapsort_v100():
+	before = time.time()
+	heapsort(v100)
+	after = time.time()
+	total = ((after-before)*1000)
+
+	print("time heapsort = (100 elements) %0.4f" %total)
+
+time_execute_heapsort_v100()
+
+def time_execute_heapsort_v1000():
+	before = time.time()
+	heapsort(v1000)
+	after = time.time()
+	total = ((after-before)*1000)
+
+	print("time heapsort = (1000 elements) %0.4f" %total)
+
+time_execute_heapsort_v1000()
+
+
+def time_execute_heapsort_v10000():
+	before = time.time()
+	heapsort(v10000)
+	after = time.time()
+	total = ((after-before)*1000)
+
+	print("time heapsort = (10000 elements) %0.4f" %total)
+
+time_execute_heapsort_v10000()
 
 
 

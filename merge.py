@@ -34,3 +34,31 @@ def merge(vector, start, mid, end):
     for i, sorted_val in enumerate(merged):
         vector[start + i] = sorted_val
         yield vector
+
+def mergesort_time(array):
+    # split
+    if len(array) > 1:
+        middle = len(array) // 2
+        left = array[:middle]
+        right = array[middle:]
+
+        mergesort_time(left)
+        mergesort_time(right)
+
+        i = 0
+        j = 0
+        k = 0
+
+        while i < len(left) and j < len(right):
+            if left[i] < right[j]:
+                array[k] = left[i]
+                i += 1
+            else:
+                array[k] = right[j]
+                j += 1
+            k += 1
+
+        while i < len(left):
+            array[k] = right[j]
+            j += 1
+            k += 1

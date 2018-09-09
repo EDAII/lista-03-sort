@@ -16,3 +16,6 @@ def shellsort(vector):
 			vector[j] = value
 			i+=1
 		gap = int(gap/2)
+
+	return vector
+
