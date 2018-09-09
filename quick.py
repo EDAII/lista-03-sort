@@ -19,3 +19,28 @@ def quicksort(array):
         first_part.append(array[i])
 
         return first_part + second_part
+
+
+def quicksort_graph(vector, start, end):
+    """In-place quicksort."""
+
+    if start >= end:
+        return
+
+    pivot = vector[end]
+    pivotIdx = start
+
+    for i in range(start, end):
+        if vector[i] < pivot:
+            swap(vector, i, pivotIdx)
+            pivotIdx += 1
+        yield vector
+    swap(vector, end, pivotIdx)
+    yield vector
+
+    yield from quicksort(vector, start, pivotIdx - 1)
+    yield from quicksort(vector, pivotIdx + 1, end)
+
+def swap(vector, i, j):
+    if i!=j:
+        vector[i], vector[j] = vector[j], vector[i]

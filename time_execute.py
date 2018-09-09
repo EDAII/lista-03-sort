@@ -57,7 +57,37 @@ def time_execute_shellsort_v10000():
 
 time_execute_shellsort_v10000()
 
+def time_execute_mergesort_v100():
+	before = time.time()
+	mergesort(v100,0,v100-1)
+	after = time.time()
+	total = ((after-before)*100)
 
+	print("time mergesort = (100 elements) %0.2f" %total)
+
+time_execute_mergesort_v100()
+
+
+def time_execute_mergesort_v1000():
+	before = time.time()
+	mergesort(v1000,0,v100-1)
+	after = time.time()
+	total = ((after-before)*100)
+
+	print("time mergesort = (1000 elements) %0.2f" %total)
+
+time_execute_mergesort_v1000()
+
+
+def time_execute_mergesort_v10000():
+	before = time.time()
+	mergesort(v10000,0,v100-1)
+	after = time.time()
+	total = ((after-before)*100)
+
+	print("time mergesort = (10000 elements) %0.2f" %total)
+
+time_execute_mergesort_v10000()
 
 
 

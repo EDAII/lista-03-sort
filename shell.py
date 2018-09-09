@@ -11,6 +11,8 @@ def shellsort(vector):
 			while(j - gap >=0 and value < vector[j-gap]):
 				vector[j] = vector[j-gap]
 				j-=gap
+				yield vector
+
 			vector[j] = value
 			i+=1
 		gap = int(gap/2)

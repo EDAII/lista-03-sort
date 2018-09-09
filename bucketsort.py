@@ -2,7 +2,6 @@ import math
 from insertion import insertion_sort
 
 DEFAULT_BUCKET_SIZE = 5
-vector = [22,45,12,8,10,6,72,81,33,18,50,14]
 
 def bucketsort(vector, bucketSize=DEFAULT_BUCKET_SIZE):
 	
@@ -44,7 +43,4 @@ def bucketsort(vector, bucketSize=DEFAULT_BUCKET_SIZE):
 		for j in range(0,len(buckets[i])):
 			new_vector.append(buckets[i][j])
 
-	return new_vector
-
-new_vector = bucketsort(vector)
-print(new_vector)
+	yield new_vector

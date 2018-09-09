@@ -13,3 +13,5 @@ def insertion_sort(vector):
 			vector[j+1] = temporaria
 		i = i + 1
 
+		yield vector
+

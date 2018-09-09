@@ -25,15 +25,5 @@ def heapsort(array):
         array[index], array[0] = array[0], array[index]
         make_heap(array, index, 0)
 
-# test the algorithm
+    yield array
 
-array = [ 12, 11, 13, 5, 6, 7]
-
-heapsort(array)
-
-size_of_heap = len(array)
-
-print ("Sorted array is")
-
-for index in range(size_of_heap):
-    print("%d" %array[index])
