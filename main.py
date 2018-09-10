@@ -22,59 +22,65 @@ DEFAULT_BUCKET_SIZE = 5
 
 
 if __name__ == "__main__":
+    number_interation = int(input("Digite o numero de inteiros: "))
 
-	number_interation = int(input("Digite o numero de inteiros: "))
+    input_message = "Selecione o metodo que deseja executar\n(i)nsertion sort\n(b)ucket sort\n(m)erge sort\n(s)hell sort\n(q)uick sort\n(r)adix sort\n(h)heap sort"
+    input_is = input(input_message)
 
-	input_message = "Selecione o metodo que deseja executar\n(i)nsertion sort\n(b)ucket sort\n(m)erge sort\n(s)hell sort\n(q)uick sort"
-	input_is = input(input_message)
-	
-	# Build and randomly shuffle list of integers.
-	vector = [x + 1 for x in range(number_interation)]
-	random.seed(time.time())
-	random.shuffle(vector)
+    # Build and randomly shuffle list of integers.
+    vector = [x + 1 for x in range(number_interation)]
+    random.seed(time.time())
+    random.shuffle(vector)
 
-	if input_is == "i":
-		title = "Insertion Sort"
-		generator = insertion_sort(vector)
-	elif input_is == "b":
-		title = "Bucket Sort"
-		generator = bucketsort(vector,bucketSize=DEFAULT_BUCKET_SIZE)
-	elif input_is == "m":
-		title = "Merge Sort"
-		generator = mergesort(vector,0,number_interation-1)
-	elif input_is == "s":
-		title = "Shell Sort"
-		generator = shellsort(vector)
-	elif input_is == "q":
-		title = "Quick Sort"
-		generator = quicksort_graph(vector,0,number_interation-1)
-
-	# Inicializando grafico
-	fig, ax = plt.subplots()
-	ax.set_title(title)
-
-	#bar
-
-	bar = ax.bar(range(len(vector)), vector, align="edge")
-
-	ax.set_xlim(0,number_interation)
-	ax.set_ylim(0, int(1.07* number_interation))
-
-	text = ax.text(0.02, 0.95, "", transform=ax.transAxes)
-	text_time = ax.text(0.02, 0.75, "", transform=ax.transAxes)
-
-	start_time = time.time()
-	iteration = [0]
-	def update_fig(vector, rects, iteration):
-	    for rect, val in zip(rects, vector):
-	        rect.set_height(val)
-	    iteration[0] += 1
-	    text.set_text("# of operations: {}".format(iteration[0]))
-
-	text_time.set_text("time: {}".format((time.time() - start_time)*1000))
+    if input_is == "i":
+        title = "Insertion Sort"
+        generator = insertion_sort(vector)
+    elif input_is == "b":
+        title = "Bucket Sort"
+        generator = bucketsort(vector,bucketSize=DEFAULT_BUCKET_SIZE)
+    elif input_is == "m":
+        title = "Merge Sort"
+        generator = mergesort(vector,0,number_interation-1)
+    elif input_is == "s":
+        title = "Shell Sort"
+        generator = shellsort(vector)
+    elif input_is == "q":
+        title = "Quick Sort"
+        generator = quicksort_graph(vector,0,number_interation-1)
+    elif input_is == "h":
+        generator = heapsort(vector)
+        title = 'heapsort'
+    elif input_is == "r":
+        generator = radixsort(vector)
+        title = 'radix'
 
 
-	anim = animation.FuncAnimation(fig, func=update_fig,
-	    fargs=(bar, iteration), frames=generator, interval=1,
-	    repeat=False)
-	plt.show()
+    # Inicializando grafico
+    fig, ax = plt.subplots()
+    ax.set_title(title)
+
+    #bar
+
+    bar = ax.bar(range(len(vector)), vector, align="edge")
+
+    ax.set_xlim(0,number_interation)
+    ax.set_ylim(0, int(1.07* number_interation))
+
+    text = ax.text(0.02, 0.95, "", transform=ax.transAxes)
+    text_time = ax.text(0.02, 0.75, "", transform=ax.transAxes)
+
+    start_time = time.time()
+    iteration = [0]
+    def update_fig(vector, rects, iteration):
+        for rect, val in zip(rects, vector):
+            rect.set_height(val)
+        iteration[0] += 1
+        text.set_text("# of operations: {}".format(iteration[0]))
+
+    text_time.set_text("time: {}".format((time.time() - start_time)*1000))
+
+
+    anim = animation.FuncAnimation(fig, func=update_fig,
+        fargs=(bar, iteration), frames=generator, interval=1,
+        repeat=False)
+    plt.show()
